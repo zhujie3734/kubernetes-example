@@ -16,6 +16,8 @@ before_script:
 
 build_and_push:
   stage: build
+  tags:
+    - gitlabci
   script:
     - docker build -t $DOCKERHUB_USERNAME/frontend:$CI_COMMIT_SHORT_SHA ./frontend
     - docker push $DOCKERHUB_USERNAME/frontend:$CI_COMMIT_SHORT_SHA
